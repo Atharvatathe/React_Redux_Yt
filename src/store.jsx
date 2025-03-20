@@ -40,11 +40,21 @@ const store = createStore(taskReducer);
 console.log("initial state:", store.getState());
 
 //step 4: Dispatch action to add task
-store.dispatch({ type: ADD_TASK, payload: "Buy something" });
+store.dispatch(addTask("Buy Apple"));
 console.log("updated state:", store.getState());
 
-store.dispatch({ type: ADD_TASK, payload: "Buy something again" });
+store.dispatch(addTask("Buy Mango"));
 console.log("updated state:", store.getState());
 
-store.dispatch({ type: DELETE_TASK, payload: 0 });
-console.log("updated state:", store.getState());
+store.dispatch(deleteTask(0));
+console.log("deleted state:", store.getState());
+
+// step 5: create action creators
+
+const addTask = (data) => {
+  store.dispatch({ type: ADD_TASK, payload: data });
+};
+
+const deleteTask = (data) => {
+  store.dispatch({ type: DELETE_TASK, payload: data });
+};
