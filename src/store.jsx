@@ -41,11 +41,11 @@ console.log("initial state:", store.getState());
 
 // step 5: create action creators
 
-const addTask = (data) => {
+export const addTask = (data) => {
   return { type: ADD_TASK, payload: data };
 };
 
-const deleteTask = (data) => {
+export const deleteTask = (data) => {
   return { type: DELETE_TASK, payload: data };
 };
 
@@ -54,9 +54,6 @@ store.dispatch(addTask("Buy Apple"));
 console.log("updated state:", store.getState());
 
 store.dispatch(addTask("Buy Banana"));
-console.log("updated state:", store.getState());
-
-store.dispatch(addTask("Buy Pinapple"));
 console.log("updated state:", store.getState());
 
 store.dispatch(addTask("Buy Mango"));
