@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { composeWithDevTools } from "@redux-devtools/extension";
 
 //Define Action Types: stateDomain & Event
 const ADD_TASK = "task/add";
@@ -32,7 +33,7 @@ const taskReducer = (state = initialState, action) => {
 };
 
 // step 2: create the redux store using the reducer
-export const store = createStore(taskReducer);
+export const store = createStore(taskReducer, composeWithDevTools());
 
 //step 3: Log the initial state
 // The getState method is synchronous function that returns the current state of redux application. It include the entire state of the application, including akk the reducers and their respective state.
