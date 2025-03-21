@@ -1,4 +1,9 @@
+import { MdDeleteForever } from "react-icons/md";
+import { useSelector } from "react-redux";
+
 export const Todo = () => {
+  const task = useSelector((state) => state.task); // using useSelector hook we can access data from store
+
   return (
     <div className="container">
       <div className="todo-app">
@@ -11,7 +16,20 @@ export const Todo = () => {
             <button>Add Task</button>
           </form>
         </div>
-        <ul id="list-container"></ul>
+        <ul id="list-container">
+          {task.map((curentTask, index) => {
+            return (
+              <li key={index}>
+                <p>
+                  {index}: {curentTask}
+                </p>
+                <div>
+                  <MdDeleteForever className="icon-style" />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
